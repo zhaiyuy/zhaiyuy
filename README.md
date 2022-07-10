@@ -21,13 +21,13 @@
 代码介绍
 -----
 ### 重要变量介绍
- DDPG_for_obstacle_avoidance.py包含了算法的所有功能，其中
+ DDPG_for_obstacle_avoidance.py包含了算法的所有功能，可以实现连续帧图像处理、Actor部分网络搭建、Critic部分网络搭建，DDPG训练参数，验证模型有效性。其中，比较重要的类、变量如下：
   * class ReplayMemory定义了经验回放池的大小、样本采样方式等；
   * class ENV 定义了奖励函数的计算、RGB图像到灰度图像的转换；
   * class Actor(nn.Module)定义了Actor网络结构以及输入输出；
   * class Critic(nn.Module)定义了Critic网络结构以及输入输出；   
   * class DDPG(object)定义了DDPG算法输入输出的格式和训练方式；
-  * load_model是用于区分训练和测试的布尔值；
+  * load_model是用于区分训练和测试的布尔值,load_model=True为测试，load_model=False为训练；
 ### 代码逻辑
   * (1) 初始化状态空间、动作空间，训练环境，获取一帧图像处理后复制堆叠为四帧图像信息，作为图像初状态
   * (2) 进入循环，循环次数为设定的最大回合数
@@ -44,5 +44,6 @@
  
 仿真结果
 -----
+通过对训练后的模型进行测试，我们发现无人机可以顺利的避开关键障碍物到达目标点。
  详细的仿真结果可以在课程报告中查看。
 
